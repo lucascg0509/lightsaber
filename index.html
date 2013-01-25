@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title>Lightsaber</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+
+		$('document').ready(function(){
+			disp = true;
+			//alert('oi');
+			$('#laser').hide();
+
+			$('#punho').click(ligar);
+
+			function ligar() {
+				if (disp) {
+					disp = false;
+					if (!$('#laser').is(':visible')) {
+						$('#laser').show();
+						$('#laser').animate({
+							width: '700px'
+						}, 800, function(){
+							disp = true;
+						});
+					}else{
+						$('#laser').animate({
+							width: '0px'
+						}, 1000, function(){
+							$('#laser').hide();
+							disp = true;
+						});
+					}
+				}
+			}
+
+		});
+
+	</script>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+			font-family: sans-serif;
+		}
+
+		html{
+			background: #000000;
+		}
+
+		body{
+			width: 1024px;
+			margin: auto;
+			padding-top: 30px;
+		}
+
+		h1{
+			color: #ffffff;
+			font-variant: small-caps;
+			font-size: 40px;
+			text-align: center;
+			margin: 20px;
+			margin-bottom: 50px;
+			text-shadow: 0px 0px 20px #ff4444;
+		}
+
+		#punho{
+			float: left;
+		}
+
+		#imagem-punho{
+			width: 300px;
+			cursor: pointer;
+		}
+
+		#laser{
+			width: 0px;
+			background: #ffffff;
+			height: 30px;
+			margin-top: 25px;
+			float: left;
+			border-top-right-radius: 20px;
+			border-bottom-right-radius: 20px;
+			box-shadow: 0px 0px 40px 5px #0011ff;
+		}
+
+		#rodape{
+			font-style: italic;
+			font-size: 20px;
+			color: #ffffff;
+			text-shadow: 0px 0px 40px #00ff11;
+			clear: both;
+			margin-top: 200px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="header">
+		<h1>a lightsaber</h1>
+	</div>
+
+	<div id="punho"><img id="imagem-punho" src="sabre.png" /></div>
+
+	<div id="laser"></div>
+
+	<div id="rodape">Created by Lucas Cortez Gresele</div>
+</body>
+</html>
