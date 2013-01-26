@@ -17,7 +17,7 @@
 					if (!$('#laser').is(':visible')) {
 						$('#laser').show();
 						$('#laser').animate({
-							width: '700px'
+							width: '800px'
 						}, 800, function(){
 							disp = true;
 						});
@@ -44,6 +44,7 @@
 
 		html{
 			background: #000000;
+			min-height: 100%;
 		}
 
 		body{
@@ -67,15 +68,15 @@
 		}
 
 		#imagem-punho{
-			width: 300px;
+			width: 200px;
 			cursor: pointer;
 		}
 
 		#laser{
 			width: 0px;
 			background: #ffffff;
-			height: 30px;
-			margin-top: 25px;
+			height: 20px;
+			margin-top: 17px;
 			float: left;
 			border-top-right-radius: 20px;
 			border-bottom-right-radius: 20px;
