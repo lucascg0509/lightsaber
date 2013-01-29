@@ -2,6 +2,7 @@
 <head>
 	<title>Lightsaber</title>
 	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="howler.js"></script>
 	<script type="text/javascript">
 
 		$('document').ready(function(){
@@ -11,17 +12,40 @@
 
 			$('#punho').click(ligar);
 
+			var on = new Howl({
+			  urls: ['ltsaberon01.wav'],
+			  autoplay: false,
+			  loop: false,
+			  volume: 1,
+			  onend: function() {
+			  	on.stop();
+			  }
+			});
+
+			var off = new Howl({
+			  urls: ['ltsaberoff01.wav'],
+			  autoplay: false,
+			  loop: false,
+			  volume: 0.6,
+			  onend: function() {
+			  	off.stop();
+			  }
+			});
+
 			function ligar() {
 				if (disp) {
 					disp = false;
+
 					if (!$('#laser').is(':visible')) {
 						$('#laser').show();
+						on.play();
 						$('#laser').animate({
 							width: '800px'
 						}, 400, function(){
 							disp = true;
 						});
 					}else{
+						off.play();
 						$('#laser').animate({
 							width: '0px'
 						}, 800, function(){
